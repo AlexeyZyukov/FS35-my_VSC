@@ -102,7 +102,7 @@
 //пример из учебника:
 // function greetGuest(greeting) {
 //     console.log(`${greeting}, ${this.username}.`);
-    
+
 // }
 
 // const mango = { username: "Манго" };
@@ -130,9 +130,9 @@
 //    return `Готовим ${this.dish} для ${this.email}. Ваш заказ ${position}-й в очереди.`
 // }
 // const messages = [];
-    
+
 //     for (let i = 0; i < orders.length; i += 1) {
-       
+
 //         let result = composeMessage.call(orders[i], i + 1);
 //         console.log(result)
 //         messages.push(result);
@@ -146,7 +146,7 @@
 //         messageResult = (`Готовим ${this.dish} для ${this.email}. Ваш заказ ${position}-й в очереди.`);
 //         console.log(messageResult);        
 // };
-       
+
 // for (let i = 0; i < orders.length; i += 1) {
 //     composeMessage.call(orders[i], i + 1);
 //     messages.push(messageResult)
@@ -156,20 +156,80 @@
 
 
 //№ 8-10 Метод apply
-const orders = [
-  { email: "solomon@topmail.ua", dish: "Burger" },
-  { email: "artemis@coldmail.net", dish: "Pizza" },
-  { email: "jacob@mail.com", dish: "Taco" },
-];
+// const orders = [
+//   { email: "solomon@topmail.ua", dish: "Burger" },
+//   { email: "artemis@coldmail.net", dish: "Pizza" },
+//   { email: "jacob@mail.com", dish: "Taco" },
+// ];
 
-// Пиши код ниже этой строки
-function composeMessage(position) {
-  return `Готовим ${this.dish} для ${this.email}. Ваш заказ ${position}-й в очереди.`;
-}
+// // Пиши код ниже этой строки
+// function composeMessage(position) {
+//   return `Готовим ${this.dish} для ${this.email}. Ваш заказ ${position}-й в очереди.`;
+// }
 
-const messages = [];
-for (let i = 0; i < orders.length; i++) {
-  const msg = composeMessage.apply(orders[i], [i + 1]);
-  messages.push(msg);
-}
-console.log(messages);
+// const messages = [];
+// for (let i = 0; i < orders.length; i++) {
+//   const msg = composeMessage.apply(orders[i], [i + 1]);
+//   messages.push(msg);
+// }
+// console.log(messages);
+
+//# 9-10 Метод bind
+//Метод bind создаёт и возвращает копию функции foo с привязанным контекстом obj и аргументами arg1, 
+//arg2 и т.д.Получается копия функции которую можно передать куда угодно и вызвать когда угодно.
+// const pizzaPalace = {
+//   company: 'Pizza Palace',
+// };
+
+// const burgerShack = {
+//   company: 'Burger Shack',
+// };
+
+// function composeMessage(customerName) {
+//   return `${customerName}, всегда рады вас видеть в «${this.company}».`;
+// }
+// // Пиши код ниже этой строки
+
+// const pizzaPalaceComposer = composeMessage.bind(pizzaPalace);
+// const pizzaPalaceMessage = pizzaPalaceComposer('Манго');
+
+// const burgerShackComposer = composeMessage.bind(burgerShack);
+// const burgerShackMessage = burgerShackComposer('Поли');
+
+//# 10-10 Метод bind и методы объекта
+//При передаче методов объекта как колбэк-функций, контекст не сохраняется. Колбэк это ссылка на 
+//метод, которая присваивается как значение параметра, вызываемого без объекта.
+//Метод bind используется для привязки контекста при передаче методов объекта как колбэк-функций. 
+//Передадим колбэком не оригинальный метод getFullName, а его копию с привязанным контекстом к объекту customer.
+// const service = {
+//   mailingList: ['mango@mail.com', 'poly@hotmail.de', 'ajax@jmail.net'],
+//   subscribe(email) {
+//     this.mailingList.push(email);
+//     return `Почта ${email} добавлена в рассылку.`;
+//   },
+//   unsubscribe(email) {
+//     this.mailingList = this.mailingList.filter((e) => e !== email);
+//     return `Почта ${email} удалена из рассылки.`;
+//   },
+// };
+
+// function logAndInvokeAction(email, action) {
+//   console.log(`Выполняем действие с ${email}.`);
+//   return action(email);
+// }
+
+// const firstInvoke = logAndInvokeAction('kiwi@mail.uk', service.subscribe.bind(service));
+// console.log(firstInvoke);
+// // Почта kiwi@mail.uk добавлена в рассылку.
+
+// console.log(service.mailingList);
+// /* ['mango@mail.com', 
+//     'poly@hotmail.de', 
+//     'ajax@jmail.net', 
+//     'kiwi@mail.uk']*/
+// const secondInvoke = logAndInvokeAction('poly@hotmail.de', service.unsubscribe.bind(service));
+// console.log(secondInvoke);
+// // Почта poly@hotmail.de удалена из рассылки.
+
+// console.log(service.mailingList); // ['mango@mail.com', 'ajax@jmail.net', 'kiwi@mail.uk']
+

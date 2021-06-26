@@ -102,3 +102,8 @@
 // child.age = 27;
 
 // // Пиши код выше этой строки
+
+const Car = function () {
+    message: "I'm prototype function"
+    console.log(this);
+}

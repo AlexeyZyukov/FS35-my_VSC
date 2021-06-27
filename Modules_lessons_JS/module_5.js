@@ -103,7 +103,24 @@
 
 // // Пиши код выше этой строки
 
-const Car = function () {
-    message: "I'm prototype function"
-    console.log(this);
+const Car = function ({brand, model, price} = {}) {
+    //message: "I'm a prototype function"
+    console.log("Car is" , {brand, model, price});
+    this.brand = brand;
+    this.model = model;
+    this.price = price;
 }
+
+const myCar1 = new Car({
+    brand: "audi",
+    model: "Q5",
+    price: 35000,
+});
+console.log("myCar1 is", myCar1);
+
+const myCar2 = new Car({
+    brand: "VW",
+    model: "Polo",
+    price: 15000,
+});
+console.log("myCar2 is", myCar2);

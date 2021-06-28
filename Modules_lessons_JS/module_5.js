@@ -1,6 +1,6 @@
 "use strict";
 
-//Репета разбор this - модуль 5
+//модуль 5 Репета разбор this 
 // const makeChangeColor = function () {
 //     const changeColor = function (color) {
 //         console.log(`changeColor -> this`, this);
@@ -18,7 +18,8 @@
 // };
 
 // console.log(hat.updateColor);
-// updateColor("orange");
+// //updateColor("orange"); - вернет undefined, т.к. нет вызывающего объекта и this не имеет свойства
+// hat.updateColor("orange");
 
 
 
@@ -48,26 +49,32 @@
 // const myCar2 = new Car();
 // console.log("myCar2", myCar2);
 
-// const ProductCard = function ({ productName, piecePrice, quantity } = {}) {
+//___________________________________________
+// const ProductCard = function ({ productName, itemPrice, quantity } = {}) {
 //     this.productName = productName;
-//     this.piecePrice = piecePrice;
+//     this.itemPrice = itemPrice;
 //     this.quantity = quantity;
 // };
 
-// ProductCard.prototype.changePrice = function (newpiecePrice) {
-//     this.piecePrice = newpiecePrice;
+//ProductCard.prototype.getPrice = function() {
+// 	return this.itemPrice;
+// }
+
+// ProductCard.prototype.changePrice = function (newItemPrice) {
+//     this.itemPrice = newItemPrice;
 // };
 
 // ProductCard.prototype.changeQuantity = function (newQuantity) {
 //     this.quantity = newQuantity;
 // };
 
-// const myProduct = new ProductCard({ productName: "fork", quantity: 10, piecePrice: 100, })
+// const myProduct = new ProductCard({ productName: "fork", quantity: 10, itemPrice: 100, })
 // console.log(myProduct);
 
 // myProduct.changeQuantity(20);
 // console.log(myProduct);
 
+//___________________________________________________________________
 //# 1-19 Прототип объекта и метод Object.create()
 // const parent = {
 //     name: 'Stacey',
@@ -103,6 +110,7 @@
 
 // // Пиши код выше этой строки
 
+<<<<<<< Updated upstream
 
 //функция constructor
 // const Car = function ({brand, model, price} = {}) {
@@ -435,3 +443,77 @@ const bmw = new Car({ price: 64000 });
 
 console.log(Car.checkPrice(audi.price)); // Всё хорошо, цена в порядке.
 console.log(Car.checkPrice(bmw.price)); // Внимание! Цена превышает допустимую.
+=======
+//# 5-19
+// function Car({ brand, model, price }) {
+//   this.brand = brand;
+//   this.model = model;
+//   this.price = price;
+// }
+
+// Car.prototype.getPrice = function() {
+//     return this.price;
+// }
+
+// Car.prototype.changePrice = function(newPrice) {
+//   this.price = newPrice;
+// }
+
+//_______________________________________________________
+//# 6-19 Хранилище
+// function Storage(items) {
+//     this.items = items;
+// };
+
+// Storage.prototype.getItems = function() {
+//   return this.items;
+// };
+
+// Storage.prototype.addItem = function(newItem) {
+//   this.items.push(newItem);
+// };
+
+// Storage.prototype.removeItem = function (item) {
+//     let itemsIndex = this.items.indexOf(item);
+//     this.items.splice(itemsIndex, 1);
+// };
+
+
+// // Пиши код выше этой строки
+// const storage = new Storage(['Нанитоиды', 'Пролонгер', 'Антигравитатор']);
+// console.log(storage.getItems()); // ["Нанитоиды", "Пролонгер", "Антигравитатор"]
+// storage.addItem('Дроид');
+// console.log(storage.getItems()); // ["Нанитоиды", "Пролонгер", "Антигравитатор", "Дроид"]
+// storage.removeItem('Пролонгер');
+// console.log(storage.getItems()); // ["Нанитоиды", "Антигравитатор", "Дроид"]
+
+
+//____________________________________________________
+//# 7-19 Конструктор строк
+ function StringBuilder(baseValue) {
+    this.value = baseValue
+}
+StringBuilder.prototype.getValue = function () {
+    return this.value;
+}
+StringBuilder.prototype.padEnd = function (str) {
+    this.value += str;
+}
+StringBuilder.prototype.padStart = function (str) {
+    this.value = str + this.value;
+}
+StringBuilder.prototype.padBoth = function (str) {
+    this.value = str + this.value + str;
+}
+
+
+// Пиши код выше этой строки
+const builder = new StringBuilder('.');
+console.log(builder.getValue()); // '.'
+builder.padStart('^');
+console.log(builder.getValue()); // '^.'
+builder.padEnd('^');
+console.log(builder.getValue()); // '^.^'
+builder.padBoth('=');
+console.log(builder.getValue()); // '=^.^='
+>>>>>>> Stashed changes

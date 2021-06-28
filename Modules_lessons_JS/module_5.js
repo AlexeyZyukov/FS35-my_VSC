@@ -110,7 +110,7 @@
 
 // // Пиши код выше этой строки
 
-<<<<<<< Updated upstream
+// <<<<<<< Updated upstream
 
 //функция constructor
 // const Car = function ({brand, model, price} = {}) {
@@ -135,14 +135,59 @@
 // });
 // console.log("myCar2 is", myCar2);
 
+//# 5-19
+// function Car({ brand, model, price }) {
+//   this.brand = brand;
+//   this.model = model;
+//   this.price = price;
+// }
+
+// Car.prototype.getPrice = function() {
+//     return this.price;
+// }
+
+// Car.prototype.changePrice = function(newPrice) {
+//   this.price = newPrice;
+// }
+
+//_______________________________________________________
+//# 6-19 Хранилище
+// function Storage(items) {
+//     this.items = items;
+// };
+
+// Storage.prototype.getItems = function() {
+//   return this.items;
+// };
+
+// Storage.prototype.addItem = function(newItem) {
+//   this.items.push(newItem);
+// };
+
+// Storage.prototype.removeItem = function (item) {
+//     let itemsIndex = this.items.indexOf(item);
+//     this.items.splice(itemsIndex, 1);
+// };
+
+
+// // Пиши код выше этой строки
+// const storage = new Storage(['Нанитоиды', 'Пролонгер', 'Антигравитатор']);
+// console.log(storage.getItems()); // ["Нанитоиды", "Пролонгер", "Антигравитатор"]
+// storage.addItem('Дроид');
+// console.log(storage.getItems()); // ["Нанитоиды", "Пролонгер", "Антигравитатор", "Дроид"]
+// storage.removeItem('Пролонгер');
+// console.log(storage.getItems()); // ["Нанитоиды", "Антигравитатор", "Дроид"]
+
+
+//____________________________________________________
 // # 7-19 Конструктор строк
 // function StringBuilder (baseValue) {
 //   this.value = baseValue;
   
 // }
 
-// //ниже записаны объявления методов, которые добавляются в вызвваемый объект как ссылки на них.
-// //т.е. каждый новый объект имеет достук к основному методу по ссылке
+// //ниже записаны объявления методов, которые добавляются в вызвваемый объект 
+//как ссылки на них. т.е. каждый новый объект имеет достук к основному методу по ссылке
 // StringBuilder.prototype.getValue = function (value) {
 //     return this.value;
 //   }
@@ -170,6 +215,7 @@
 // builder.padBoth('=');
 // console.log(builder.getValue()); // '=^.^='
 
+//_____________________________________________________________
 //№ 9+10-19 Конструктор класса
 // class Car {
 //   constructor ({ brand, model, price }) {
@@ -187,6 +233,7 @@
 //   }
 // }
 
+//____________________________________________________________
 //№ 11-19 Приватные свойства
 //Пример, поясняющий учебный материал.
 // class User {
@@ -237,6 +284,7 @@
 //     }
 // }
 
+//____________________________________________________________
 //№ 12-19 Хранилище 2.0
 // class Storage {
 //   #items
@@ -267,6 +315,7 @@
 // storage.removeItem("Пролонгер");
 // console.log(storage.getItems()); // ["Нанитоиды", "Антигравитатор", "Дроид"]
 
+//____________________________________________________________
 //# 13-19 Конструктор строк 2.0
 //Выполни рефакторинг заменив функцию-конструктор StringBuilder на класс с методами. Сделай так, 
 //чтобы свойство value было приватным.
@@ -305,6 +354,7 @@
 // builder.padBoth('=');
 // console.log(builder.getValue()); // '=^.^='
 
+//____________________________________________________________
 //# 14-19 Геттеры и сеттеры
 // class Car {
 //   #model;
@@ -342,6 +392,7 @@
 //   }
 // }
 
+//____________________________________________________________
 //# 15-19 Статические св-ва
 //Кроме публичных и приватных свойств будущего экземпляра, в классе можно объявить его собственные 
 //свойства, доступные только классу, но не его экземплярам - статические свойства(static).
@@ -421,99 +472,199 @@
 // audi.price = 51000;
 // console.log(audi.price); // 49000
 
+//____________________________________________________________
 //№ 16-19 Статические методы
-class Car {
-  static #MAX_PRICE = 50000;
-  // Пиши код ниже этой строки
-  static checkPrice(price) {
-    if (price > Car.#MAX_PRICE) {
-      return "Внимание! Цена превышает допустимую."
-    }
-    return "Всё хорошо, цена в порядке."
-  };
+// class Car {
+//   static #MAX_PRICE = 50000;
+//   // Пиши код ниже этой строки
+//   static checkPrice(price) {
+//     if (price > Car.#MAX_PRICE) {
+//       return "Внимание! Цена превышает допустимую."
+//     }
+//     return "Всё хорошо, цена в порядке."
+//   };
 
-  // Пиши код выше этой строки
-  constructor({ price }) {
-    this.price = price;
-  }
-}
-
-const audi = new Car({ price: 36000 });
-const bmw = new Car({ price: 64000 });
-
-console.log(Car.checkPrice(audi.price)); // Всё хорошо, цена в порядке.
-console.log(Car.checkPrice(bmw.price)); // Внимание! Цена превышает допустимую.
-=======
-//# 5-19
-// function Car({ brand, model, price }) {
-//   this.brand = brand;
-//   this.model = model;
-//   this.price = price;
+//   // Пиши код выше этой строки
+//   constructor({ price }) {
+//     this.price = price;
+//   }
 // }
 
-// Car.prototype.getPrice = function() {
-//     return this.price;
+// const audi = new Car({ price: 36000 });
+// const bmw = new Car({ price: 64000 });
+
+// console.log(Car.checkPrice(audi.price)); // Всё хорошо, цена в порядке.
+// console.log(Car.checkPrice(bmw.price)); // Внимание! Цена превышает допустимую.
+//=======
+//____________________________________________________________
+//#17-19 Наследование классов
+// class User {
+//   email;
+
+//   constructor(email) {
+//     this.email = email;
+//   }
+
+//   get email() {
+//     return this.email;
+//   }
+
+//   set email(newEmail) {
+//     this.email = newEmail;
+//   }
+// }
+// // Пиши код ниже этой строки
+
+// class Admin extends User {
+//   static AccessLevel = { BASIC: 'basic', SUPERUSER: 'superuser' }; //добавляет публичное статическо св-во
+// };
+
+//ниже пример из учебника JS_online использование class
+// class Clock {
+//     constructor({ template }) {
+//       this.template = template;
+//     }
+//     //let timer;
+  
+//     render() {
+//       let date = new Date();
+  
+//       let hours = date.getHours();
+//       if (hours < 10) hours = '0' + hours;
+  
+//       let mins = date.getMinutes();
+//       if (mins < 10) mins = '0' + mins;
+  
+//       let secs = date.getSeconds();
+//       if (secs < 10) secs = '0' + secs;
+  
+//       let output = this.template
+//         .replace('h', hours)
+//         .replace('m', mins)
+//         .replace('s', secs);
+  
+//       console.log(output);
+//     }
+  
+//     stop() {
+//       clearInterval(this.timer);
+//     };
+  
+//     start() {
+//       this.render();
+//       this.timer = setInterval(() => this.render(), 1000);
+//     };
+  
+//   }
+  
+//   let clock = new Clock({template: 'h:m:s'});
+// clock.start();
+// clock.stop();
+
+
+//№ 18-19 Конструктор дочернего класса
+//Первым делом в конструкторе дочернего класса необходимо вызвать специальную функцию 
+//super(аргументы) - это псевдоним конструктора родительского класса.В противном случае, 
+//при попытке обратиться к this в конструкторе дочернего клаcса, будет ошибка.При вызове 
+//конструктора класса родителя передаём необходимые ему аргументы для инициализации свойств.
+// class User {
+//   email;
+
+//   constructor(email) {
+//     this.email = email;
+//   }
+
+//   get email() {
+//     return this.email;
+//   }
+
+//   set email(newEmail) {
+//     this.email = newEmail;
+//   }
 // }
 
-// Car.prototype.changePrice = function(newPrice) {
-//   this.price = newPrice;
+// class Admin extends User {
+//   // Пиши код ниже этой строки
+
+//   static AccessLevel = {
+//     BASIC: 'basic',
+//     SUPERUSER: 'superuser'
+//   };
+//   accessLevel;
+  
+//   constructor({ email, accessLevel }) //constructor принимает объект {}
+//   {
+//   super(email);
+//     this.accessLevel = accessLevel;  
+//   }
+
+//   // Пиши код выше этой строки
 // }
 
-//_______________________________________________________
-//# 6-19 Хранилище
-// function Storage(items) {
-//     this.items = items;
-// };
+// const mango = new Admin({
+//   email: 'mango@mail.com',
+//   accessLevel: Admin.AccessLevel.SUPERUSER
+// });
 
-// Storage.prototype.getItems = function() {
-//   return this.items;
-// };
+// console.log(mango.email); // mango@mail.com
+// console.log(mango.accessLevel); // superuser
 
-// Storage.prototype.addItem = function(newItem) {
-//   this.items.push(newItem);
-// };
+//# 19-19 Методы дочернего класса
+// class User {
+//   email;
 
-// Storage.prototype.removeItem = function (item) {
-//     let itemsIndex = this.items.indexOf(item);
-//     this.items.splice(itemsIndex, 1);
-// };
+//   constructor(email) {
+//     this.email = email;
+//   }
 
+//   get email() {
+//     return this.email;
+//   }
 
-// // Пиши код выше этой строки
-// const storage = new Storage(['Нанитоиды', 'Пролонгер', 'Антигравитатор']);
-// console.log(storage.getItems()); // ["Нанитоиды", "Пролонгер", "Антигравитатор"]
-// storage.addItem('Дроид');
-// console.log(storage.getItems()); // ["Нанитоиды", "Пролонгер", "Антигравитатор", "Дроид"]
-// storage.removeItem('Пролонгер');
-// console.log(storage.getItems()); // ["Нанитоиды", "Антигравитатор", "Дроид"]
+//   set email(newEmail) {
+//     this.email = newEmail;
+//   }
+// }
+// class Admin extends User {
+//   // Пиши код ниже этой строки
+    
+//   static AccessLevel = {
+//     BASIC: 'basic',
+//     SUPERUSER: 'superuser'
+//   };
 
+//   accessLevel;
+//   blacklistedEmails = [];
 
-//____________________________________________________
-//# 7-19 Конструктор строк
- function StringBuilder(baseValue) {
-    this.value = baseValue
-}
-StringBuilder.prototype.getValue = function () {
-    return this.value;
-}
-StringBuilder.prototype.padEnd = function (str) {
-    this.value += str;
-}
-StringBuilder.prototype.padStart = function (str) {
-    this.value = str + this.value;
-}
-StringBuilder.prototype.padBoth = function (str) {
-    this.value = str + this.value + str;
-}
+//   constructor({ email, accessLevel }) {
+//     super(email);
+//     this.accessLevel = accessLevel;
+//   }
 
+//     blacklist(email) {
+//     this.blacklistedEmails.push(email);
+//   }
+  
+//   isBlacklisted(email) {
+//     return this.blacklistedEmails.includes(email); //includes возвращает true или false в ависимости от результата проверки
+//     //оператор if - не нужен
+//     // if (this.blacklistedEmails.includes(email)) {
+//     //   return true;
+//     // }
+//     // return false;
+//   }
 
-// Пиши код выше этой строки
-const builder = new StringBuilder('.');
-console.log(builder.getValue()); // '.'
-builder.padStart('^');
-console.log(builder.getValue()); // '^.'
-builder.padEnd('^');
-console.log(builder.getValue()); // '^.^'
-builder.padBoth('=');
-console.log(builder.getValue()); // '=^.^='
->>>>>>> Stashed changes
+//   // Пиши код выше этой строки
+// }
+
+// const mango = new Admin({
+//   email: 'mango@mail.com',
+//   accessLevel: Admin.AccessLevel.SUPERUSER
+// });
+
+// console.log(mango.email); // mango@mail.com
+// console.log(mango.accessLevel); // superuser
+// mango.blacklist('poly@mail.com');
+// console.log(mango.blacklistedEmails); // 'poly@mail.com'
+// console.log(mango.isBlacklisted('mango@mail.com')); //  false
+// console.log(mango.isBlacklisted('poly@mail.com')); // true 

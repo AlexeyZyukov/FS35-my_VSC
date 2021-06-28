@@ -298,38 +298,140 @@
 // console.log(builder.getValue()); // '=^.^='
 
 //# 14-19 Геттеры и сеттеры
-class Car {
-  model;
-  price;
-  #brand;
+// class Car {
+//   #model;
+//   #price;
+//   #brand;
 
-  constructor({ brand, model, price }) {
-    this.#brand = brand;
-    this.model = model;
+//   constructor({ brand, model, price }) {
+//     this.#brand = brand;
+//     this.#model = model;
+//     this.#price = price;
+//   }
+
+//   get brand() {
+//     return this.#brand;
+//   }
+
+//   set brand(newBrand) {
+//     this.#brand = newBrand;
+//   }
+
+//   get model() {
+//     return this.#model;
+//   }
+
+//   set model(newModel) {
+//     this.#model = newModel;
+//   }
+
+//   get price() {
+//     return this.#price;
+//   }
+
+//   set price(newPrice) {
+//     this.#price = newPrice;
+//   }
+// }
+
+//# 15-19 Статические св-ва
+//Кроме публичных и приватных свойств будущего экземпляра, в классе можно объявить его собственные 
+//свойства, доступные только классу, но не его экземплярам - статические свойства(static).
+//Они полезны для хранения информации относящейся к самому классу.
+//ниже - пример из конспекта
+// class User {
+//   // Объявление и инициализация статического свойства
+//   static TYPES = {
+//     ADMIN: 'admin',
+//     EDITOR: 'editor',
+//   };
+//   #email;
+//   #type;
+
+//   constructor({ email, type }) {
+//     this.#email = email;
+//     this.#type = type;
+//   }
+
+//   get type() {
+//     return this.#type;
+//   }
+
+//   set type(newType) {
+//     if (User.TYPES[newType] === undefined) {
+//       console.log('Ошибка! Такого типа пользователя не существет');
+//       return;
+//     }
+
+//     this.#type = newType;
+//   }
+// }
+
+// const mango = new User({
+//   email: 'mango@mail.com',
+//   type: User.TYPES.ADMIN,
+// });
+
+// console.log(mango.TYPES); // undefined
+// console.log(User.TYPES); // { ADMIN: 'admin', EDITOR: 'editor' }
+
+// console.log(mango.type); // admin
+// mango.type = User.TYPES.EDITOR;
+// console.log(mango.type); // editor
+
+//ниже - задание урока 15 для решения
+// class Car {
+//   // Пиши код ниже этой строки
+//   static MAX_PRICE = 50000;
+//   #price;
+
+//   constructor({ price }) {
+//     this.#price = price;
+//   }
+
+//   get price() {
+//     return this.#price;
+//   }
+
+//   set price(newPrice) {
+//     if (newPrice <= Car.MAX_PRICE) //обращение к статическому св-ву класса 
+//     //производится по имени класса
+//     {
+//       this.#price = newPrice;
+//       return this.#price;
+//     }
+//   }
+//   // Пиши код выше этой строки
+// }
+
+// const audi = new Car({price: 35000});
+// console.log(audi.price); // 35000
+
+// audi.price = 49000;
+// console.log(audi.price); // 49000
+
+// audi.price = 51000;
+// console.log(audi.price); // 49000
+
+//№ 16-19 Статические методы
+class Car {
+  static #MAX_PRICE = 50000;
+  // Пиши код ниже этой строки
+  static checkPrice(price) {
+    if (price > Car.#MAX_PRICE) {
+      return "Внимание! Цена превышает допустимую."
+    }
+    return "Всё хорошо, цена в порядке."
+  };
+
+  // Пиши код выше этой строки
+  constructor({ price }) {
     this.price = price;
   }
-
-  getBrand() {
-    return this.#brand;
-  }
-
-  changeBrand(newBrand) {
-    this.#brand = newBrand;
-  }
-
-  getModel() {
-    return this.model;
-  }
-
-  updateModel(newModel) {
-    this.model = newModel;
-  }
-
-  getPrice() {
-    return this.price;
-  }
-
-  setPrice(newPrice) {
-    this.price = newPrice;
-  }
 }
+
+const audi = new Car({ price: 36000 });
+const bmw = new Car({ price: 64000 });
+
+console.log(Car.checkPrice(audi.price)); // Всё хорошо, цена в порядке.
+console.log(Car.checkPrice(bmw.price)); // Внимание! Цена превышает допустимую.

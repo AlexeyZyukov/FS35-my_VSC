@@ -110,7 +110,7 @@
 
 // // Пиши код выше этой строки
 
-<<<<<<< Updated upstream
+//<<<<<<< Updated upstream
 
 //функция constructor
 // const Car = function ({brand, model, price} = {}) {
@@ -422,28 +422,28 @@
 // console.log(audi.price); // 49000
 
 //№ 16-19 Статические методы
-class Car {
-  static #MAX_PRICE = 50000;
-  // Пиши код ниже этой строки
-  static checkPrice(price) {
-    if (price > Car.#MAX_PRICE) {
-      return "Внимание! Цена превышает допустимую."
-    }
-    return "Всё хорошо, цена в порядке."
-  };
+// class Car {
+//   static #MAX_PRICE = 50000;
+//   // Пиши код ниже этой строки
+//   static checkPrice(price) {
+//     if (price > Car.#MAX_PRICE) {
+//       return "Внимание! Цена превышает допустимую."
+//     }
+//     return "Всё хорошо, цена в порядке."
+//   };
 
-  // Пиши код выше этой строки
-  constructor({ price }) {
-    this.price = price;
-  }
-}
+//   // Пиши код выше этой строки
+//   constructor({ price }) {
+//     this.price = price;
+//   }
+// }
 
-const audi = new Car({ price: 36000 });
-const bmw = new Car({ price: 64000 });
+// const audi = new Car({ price: 36000 });
+// const bmw = new Car({ price: 64000 });
 
-console.log(Car.checkPrice(audi.price)); // Всё хорошо, цена в порядке.
-console.log(Car.checkPrice(bmw.price)); // Внимание! Цена превышает допустимую.
-=======
+// console.log(Car.checkPrice(audi.price)); // Всё хорошо, цена в порядке.
+// console.log(Car.checkPrice(bmw.price)); // Внимание! Цена превышает допустимую.
+//=======
 //# 5-19
 // function Car({ brand, model, price }) {
 //   this.brand = brand;
@@ -490,30 +490,30 @@ console.log(Car.checkPrice(bmw.price)); // Внимание! Цена превы
 
 //____________________________________________________
 //# 7-19 Конструктор строк
- function StringBuilder(baseValue) {
-    this.value = baseValue
-}
-StringBuilder.prototype.getValue = function () {
-    return this.value;
-}
-StringBuilder.prototype.padEnd = function (str) {
-    this.value += str;
-}
-StringBuilder.prototype.padStart = function (str) {
-    this.value = str + this.value;
-}
-StringBuilder.prototype.padBoth = function (str) {
-    this.value = str + this.value + str;
-}
+//  function StringBuilder(baseValue) {
+//     this.value = baseValue
+// }
+// StringBuilder.prototype.getValue = function () {
+//     return this.value;
+// }
+// StringBuilder.prototype.padEnd = function (str) {
+//     this.value += str;
+// }
+// StringBuilder.prototype.padStart = function (str) {
+//     this.value = str + this.value;
+// }
+// StringBuilder.prototype.padBoth = function (str) {
+//     this.value = str + this.value + str;
+// }
 
 
-// Пиши код выше этой строки
-const builder = new StringBuilder('.');
-console.log(builder.getValue()); // '.'
-builder.padStart('^');
-console.log(builder.getValue()); // '^.'
-builder.padEnd('^');
-console.log(builder.getValue()); // '^.^'
-builder.padBoth('=');
-console.log(builder.getValue()); // '=^.^='
->>>>>>> Stashed changes
+// // Пиши код выше этой строки
+// const builder = new StringBuilder('.');
+// console.log(builder.getValue()); // '.'
+// builder.padStart('^');
+// console.log(builder.getValue()); // '^.'
+// builder.padEnd('^');
+// console.log(builder.getValue()); // '^.^'
+// builder.padBoth('=');
+// console.log(builder.getValue()); // '=^.^='
+// >>>>>>> Stashed changes

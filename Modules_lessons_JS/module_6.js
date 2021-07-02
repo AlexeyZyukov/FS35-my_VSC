@@ -154,13 +154,110 @@
 //   orderedItems.forEach(function (item) {
 //     totalPrice += item;
 //   });
-const calculateTotalPrice = (orderedItems) => {
-  let totalPrice = 0;
+// const calculateTotalPrice = (orderedItems) => {
+//   let totalPrice = 0;
 
-  orderedItems.forEach((item) => {
-    totalPrice += item;
-  });
+//   orderedItems.forEach((item) => {
+//     totalPrice += item;
+//   });
 
-  return totalPrice;
-}
+//   return totalPrice;
+// }
 // Пиши код выше этой строки
+//_______________________________________________________
+//# 7-44 Фильтрация массива чисел 2.0
+//Замени объявление функции filterArray() и коллбек для метода 
+//forEach() на стрелочные функции.
+// Пиши код ниже этой строки
+// function filterArray(numbers, value) {
+//     const filteredNumbers = [];
+  
+//     numbers.forEach(function (number) {
+//       if (number > value) {
+//         filteredNumbers.push(number);
+//       }
+//     });
+
+// const filterArray = (numbers, value) => {
+//     const filteredNumbers = [];
+  
+//     numbers.forEach((number) => {
+//       if (number > value) {
+//         filteredNumbers.push(number);
+//       }
+//     });
+  
+//     // Пиши код выше этой строки
+//     return filteredNumbers;
+// }
+//# 8-44 Общие элементы 2.0
+//Замени объявление функции getCommonElements() и коллбек для 
+//метода forEach() на стрелочные функции.
+// Пиши код ниже этой строки
+// function getCommonElements(firstArray, secondArray) {
+//     const commonElements = [];
+  
+//     firstArray.forEach(function (element) {
+//       if (secondArray.includes(element)) {
+//         commonElements.push(element);
+//       }
+//     });
+//   const getCommonElements = (firstArray, secondArray) => {
+//     const commonElements = [];
+  
+//     firstArray.forEach((element) => {
+//       if (secondArray.includes(element)) {
+//         commonElements.push(element);
+//       }
+//     });
+//     // Пиши код выше этой строки
+//     return commonElements;
+// }
+  
+// const result = getCommonElements([24, 12, 27, 3], [12, 8, 3, 36, 27]);
+// console.log(result);
+//__________________________________________________________
+//# 9-44 Чистые функции
+// function changeEven(numbers, value) {
+//     // Пиши код ниже этой строки (это первоначальный вариант - "грязная" функция, которую нужно изменить)
+//   //   for (let i = 0; i < numbers.length; i += 1) {
+//   //     if (numbers[i] % 2 === 0) {
+//   //       numbers[i] = numbers[i] + value;
+//   //     } 
+//   // }
+//   // return numbers;
+//   // }
+//   // let result = changeEven([21,18,23,14,13,18,5,21,19,5], 22);
+//   // console.log(result);
+//   // let result = changeEven([21,18,23,14,13,18,5,21,19,5,22,12,10,11], 22);
+//   // console.log(result);
+//     //мой вариант решения - в таком варианте обновляются ТОЛЬКО четные числа, но в новый массив
+//   //записываются как четные обновленные, так и не четные не обновленные числа
+//   let newArray = [];
+//   numbers.forEach((number) => {
+//     if (number % 2 === 0) {
+//       newArray.push(number += value);
+//     }
+//     else newArray.push(number);
+//   });
+//   return newArray;
+
+//   //вариант решения от ментора:
+//   // const newArr = []
+//   //   for (let i = 0; i < numbers.length; i += 1) {
+//   //     if (numbers[i] % 2 === 0) {
+//   //       newArr.push(numbers[i] + value);
+//   //     } else {
+//   //     	newArr.push(numbers[i])
+//   //     }
+//   //   }
+//   // return newArr
+//     // Пиши код выше этой строки
+// }
+// let result = changeEven([21,18,23,14,13,18,5,21,19,5,22,12,10,18,11], 22);
+// console.log(result);
+//____________________________________________________________________
+//#10-44 Метод map()
+const planets = ['Земля', 'Марс', 'Венера', 'Юпитер'];
+// Пиши код ниже этой строки
+const planetsLengths = planets;

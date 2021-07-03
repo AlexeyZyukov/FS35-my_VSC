@@ -329,3 +329,44 @@
 //   return users.map((user) => user.email)   
 //   };
   // Пиши код выше этой строки
+//_________________________________________________
+//# 15-44 Методы filter и find
+//Дополни код так, чтобы в переменной evenNumbers получился массив чётных чисел из массива numbers, 
+//а в переменной oddNumbers массив нечётных.Обязательно используй метод filter().
+// const numbers = [17, 24, 82, 61, 36, 18, 47, 52, 73];
+// // Пиши код ниже этой строки
+// const evenNumbers = numbers.filter((number) => number % 2 === 0); 
+//     console.log(evenNumbers);
+// const oddNumbers = numbers.filter((number) => number % 2 !== 0);
+// console.log(oddNumbers);
+//_______________________________________________________________________
+//# 16-44 Фильтрация уникальных элементов
+//Используя array.indexOf(course) выполняем поиск первого совпадения текущего элемента course и получаем его индекс 
+//в оригинальном массиве всех курсов.В параметре index хранится индекс текущего элемента course при переборе массива методом filter.
+//Если результат indexOf() и значение index равны - это уникальный элемент, потому что это первый раз когда такое значение 
+//встречается в массиве и на текущей итерации фильтр обрабатывает именно его.
+const books = [
+    {
+      title: 'Последнее королевство',
+      author: 'Бернард Корнуэлл',
+      genres: ['приключения', 'историческое']
+    },
+    {
+      title: 'На берегу спокойных вод',
+      author: 'Роберт Шекли',
+      genres: ['фантастика', 'мистика']
+    },
+    {
+      title: 'Красна как кровь',
+      author: 'Ли Танит',
+      genres: ['ужасы', 'мистика', 'приключения']
+    }
+  ];
+  // Пиши код ниже этой строки
+const allGenres = books.flatMap((genre) => genre.genres);
+// const allGenres = books.flatMap(function (genre) {
+//   allGenres => allGenres.push(genre)
+// }); //- попытка понять что такое genre.genres
+console.log(allGenres);
+const uniqueGenres = allGenres.filter((genre, index, array) => array.indexOf(genre) === index);
+console.log(uniqueGenres);

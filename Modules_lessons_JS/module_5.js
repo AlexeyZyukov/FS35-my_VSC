@@ -110,12 +110,6 @@
 
 // // Пиши код выше этой строки
 
-// <<<<<<< HEAD
-// //<<<<<<< Updated upstream
-// =======
-// // <<<<<<< Updated upstream
-// >>>>>>> fcb7ef7710db3e5ed3d83995ca8caf42c426787e
-
 //функция constructor
 // const Car = function ({brand, model, price} = {}) {
 //     //message: "I'm a prototype function"
@@ -487,28 +481,6 @@
 //     }
 //     return "Всё хорошо, цена в порядке."
 //   };
-// <<<<<<< HEAD
-
-//   // Пиши код выше этой строки
-//   constructor({ price }) {
-//     this.price = price;
-//   }
-// }
-
-// const audi = new Car({ price: 36000 });
-// const bmw = new Car({ price: 64000 });
-
-// console.log(Car.checkPrice(audi.price)); // Всё хорошо, цена в порядке.
-// console.log(Car.checkPrice(bmw.price)); // Внимание! Цена превышает допустимую.
-//=======
-//# 5-19
-// function Car({ brand, model, price }) {
-//   this.brand = brand;
-//   this.model = model;
-//   this.price = price;
-// }
-// =======
-// >>>>>>> fcb7ef7710db3e5ed3d83995ca8caf42c426787e
 
 //   // Пиши код выше этой строки
 //   constructor({ price }) {
@@ -609,37 +581,6 @@
 //   }
 // }
 
-// <<<<<<< HEAD
-//____________________________________________________
-//# 7-19 Конструктор строк
-//  function StringBuilder(baseValue) {
-//     this.value = baseValue
-// }
-// StringBuilder.prototype.getValue = function () {
-//     return this.value;
-// }
-// StringBuilder.prototype.padEnd = function (str) {
-//     this.value += str;
-// }
-// StringBuilder.prototype.padStart = function (str) {
-//     this.value = str + this.value;
-// }
-// StringBuilder.prototype.padBoth = function (str) {
-//     this.value = str + this.value + str;
-// }
-
-
-// // Пиши код выше этой строки
-// const builder = new StringBuilder('.');
-// console.log(builder.getValue()); // '.'
-// builder.padStart('^');
-// console.log(builder.getValue()); // '^.'
-// builder.padEnd('^');
-// console.log(builder.getValue()); // '^.^'
-// builder.padBoth('=');
-// console.log(builder.getValue()); // '=^.^='
-// >>>>>>> Stashed changes
-// =======
 // class Admin extends User {
 //   // Пиши код ниже этой строки
 
@@ -725,4 +666,3 @@
 // console.log(mango.blacklistedEmails); // 'poly@mail.com'
 // console.log(mango.isBlacklisted('mango@mail.com')); //  false
 // console.log(mango.isBlacklisted('poly@mail.com')); // true 
-// >>>>>>> fcb7ef7710db3e5ed3d83995ca8caf42c426787e

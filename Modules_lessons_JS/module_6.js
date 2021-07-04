@@ -341,8 +341,8 @@
 // console.log(oddNumbers);
 //_______________________________________________________________________
 //# 16-44 Фильтрация уникальных элементов
-//Используя array.indexOf(course) выполняем поиск первого совпадения текущего элемента course и получаем его индекс 
-//в оригинальном массиве всех курсов.В параметре index хранится индекс текущего элемента course при переборе массива методом filter.
+//Используя array.indexOf(genre) выполняем поиск первого совпадения текущего элемента genre и получаем его индекс 
+//в оригинальном массиве всех genres. В параметре index хранится индекс текущего элемента genre при переборе массива методом filter.
 //Если результат indexOf() и значение index равны - это уникальный элемент, потому что это первый раз когда такое значение 
 //встречается в массиве и на текущей итерации фильтр обрабатывает именно его.
 const books = [
@@ -364,9 +364,228 @@ const books = [
   ];
   // Пиши код ниже этой строки
 const allGenres = books.flatMap((genre) => genre.genres);
-// const allGenres = books.flatMap(function (genre) {
-//   allGenres => allGenres.push(genre)
-// }); //- попытка понять что такое genre.genres
 console.log(allGenres);
 const uniqueGenres = allGenres.filter((genre, index, array) => array.indexOf(genre) === index);
 console.log(uniqueGenres);
+// //===================
+// //const allGenres = books.flatMap(function (genre) {
+// //allGenres => allGenres.push(genre)
+// //}); //- попытка понять что такое genre.genres
+//__________________________________________________________________________________
+//# 17-44 Метод filter() и массив объектов
+//пример из урока:
+// const LOW_SCORE = 50;
+// const HIGH_SCORE = 80;
+// const students = [
+//   { name: 'Манго', score: 83 },
+//   { name: 'Поли', score: 59 },
+//   { name: 'Аякс', score: 37 },
+//   { name: 'Киви', score: 94 },
+//   { name: 'Хьюстон', score: 64 },
+// ];
+
+// const best = students.filter((student) => student.score >= HIGH_SCORE);
+// console.log(best); // Массив объектов с именами Манго и Киви
+
+// const worst = students.filter((student) => student.score < LOW_SCORE);
+// console.log(worst); // Массив с одним объектом Аякс
+
+// // В коллбек-функции удобно деструктуризировать свойства объекта
+// const average = students.filter(
+//   ({ score }) => score >= LOW_SCORE && score < HIGH_SCORE
+// );
+// console.log(average); // Массив объектов с именами Поли и Хьюстон - пример из урока.
+
+// const books = [
+//   { title: 'Последнее королевство', author: 'Бернард Корнуэлл', rating: 8.38 },
+//   { title: 'На берегу спокойных вод', author: 'Роберт Шекли', rating: 8.51 },
+//   { title: 'Сон смешного человека', author: 'Федор Достоевский', rating: 7.75 },
+//   { title: 'Красна как кровь', author: 'Ли Танит', rating: 7.94 },
+//   { title: 'Враг Божий', author: 'Бернард Корнуэлл', rating: 8.67 }
+// ];
+
+// const MIN_RATING = 8;
+// const AUTHOR = 'Бернард Корнуэлл';
+// // Пиши код ниже этой строки
+
+// const topRatedBooks = books.filter((rate) => rate.rating > MIN_RATING);
+// console.log(topRatedBooks);
+// const booksByAuthor = books.filter((item) => item.author === AUTHOR);
+// console.log(booksByAuthor)
+//_________________________________________________________________________________
+//# 18-44 Пользователи с цветом глаз
+// Пиши код ниже этой строки
+// const getUsersWithEyeColor = (users, color) => {
+//   return users.filter((user) => user.eyeColor === color)
+// };
+// // Пиши код выше этой строки
+// console.log(getUsersWithEyeColor)
+
+// let result = getUsersWithEyeColor([
+//   {
+//     name: 'Moore Hensley',
+//     email: 'moorehensley@indexia.com',
+//     eyeColor: 'blue',
+//     friends: ['Sharron Pace'],
+//     isActive: false,
+//     balance: 2811,
+//     gender: 'male'
+//   },
+//   {
+//     name: 'Sharlene Bush',
+//     email: 'sharlenebush@tubesys.com',
+//     eyeColor: 'blue',
+//     friends: ['Briana Decker', 'Sharron Pace'],
+//     isActive: true,
+//     balance: 3821,
+//     gender: 'female'
+//   },
+//   {
+//     name: 'Ross Vazquez',
+//     email: 'rossvazquez@xinware.com',
+//     eyeColor: 'green',
+//     friends: ['Marilyn Mcintosh', 'Padilla Garrison', 'Naomi Buckner'],
+//     isActive: false,
+//     balance: 3793,
+//     gender: 'male'
+//   },
+// ], "blue")
+// console.log(result)
+//__________________________________________________________________
+//# 19-44 Пользователи в возрастной категории
+// Пиши код ниже этой строки
+// const getUsersWithAge = (users, minAge, maxAge) => {
+//  return users.filter((user) => user.age > minAge && user.age < maxAge)
+// };
+// // Пиши код выше этой строки
+// let result = getUsersWithAge ([
+//   {
+//     name: 'Moore Hensley',
+//     email: 'moorehensley@indexia.com',
+//     eyeColor: 'blue',
+//     friends: ['Sharron Pace'],
+//     isActive: false,
+//     balance: 2811,
+//     gender: 'male',
+//     age: 37
+//   },
+//   {
+//     name: 'Sharlene Bush',
+//     email: 'sharlenebush@tubesys.com',
+//     eyeColor: 'blue',
+//     friends: ['Briana Decker', 'Sharron Pace'],
+//     isActive: true,
+//     balance: 3821,
+//     gender: 'female',
+//     age: 34
+//   },
+//   {
+//     name: 'Ross Vazquez',
+//     email: 'rossvazquez@xinware.com',
+//     eyeColor: 'green',
+//     friends: ['Marilyn Mcintosh', 'Padilla Garrison', 'Naomi Buckner'],
+//     isActive: false,
+//     balance: 3793,
+//     gender: 'male',
+//     age: 24
+//   },
+// ], 20, 30)
+// console.log(result)
+//__________________________________________________________
+//# 20-44 Пользователи с другом - includes() - для поиска в массиве данных
+// Пиши код ниже этой строки
+// const getUsersWithFriend = (users, friendName) => {
+//    return users.filter((user) => user.friends.includes(friendName))
+// };
+// // Пиши код выше этой строки
+// let result = getUsersWithFriend ([
+//   {
+//     name: 'Moore Hensley',
+//     email: 'moorehensley@indexia.com',
+//     eyeColor: 'blue',
+//     friends: ['Sharron Pace'],
+//     isActive: false,
+//     balance: 2811,
+//     gender: 'male',
+//     age: 37
+//   },
+//   {
+//     name: 'Sharlene Bush',
+//     email: 'sharlenebush@tubesys.com',
+//     eyeColor: 'blue',
+//     friends: ['Briana Decker', 'Sharron Pace'],
+//     isActive: true,
+//     balance: 3821,
+//     gender: 'female',
+//     age: 34
+//   },
+//   {
+//     name: 'Ross Vazquez',
+//     email: 'rossvazquez@xinware.com',
+//     eyeColor: 'green',
+//     friends: ['Marilyn Mcintosh', 'Padilla Garrison', 'Naomi Buckner'],
+//     isActive: false,
+//     balance: 3793,
+//     gender: 'male',
+//     age: 24
+//   },
+// ], 'Briana Decker')
+// console.log(result)
+//_______________________________________________________________
+//# 21-44 Список друзей
+  //Дополни функцию getFriends(users) так, чтобы она возвращала массив друзей всех пользователей 
+//(свойство friends).У нескольких пользователей могут быть одинаковые друзья, сделай так чтобы 
+//возвращаемый массив не содержал повторений.
+// Пиши код ниже этой строки
+
+const getFriends = (users) => {
+  const allFrends = users.flatMap(user => user.friends);
+  return allFrends.filter((friend, index, array) => array.indexOf(friend) === index)
+// const uniqueFrends = getFriends.filter((friend, index, array) => array.indexOf(friend) === index)
+//   return uniqueFrends;
+};
+// Пиши код выше этой строки
+let result = getFriends([
+  {
+    name: 'Moore Hensley',
+    email: 'moorehensley@indexia.com',
+    eyeColor: 'blue',
+    friends: ['Sharron Pace'],
+    isActive: false,
+    balance: 2811,
+    gender: 'male',
+    age: 37
+  },
+  {
+    name: 'Sharlene Bush',
+    email: 'sharlenebush@tubesys.com',
+    eyeColor: 'blue',
+    friends: ['Briana Decker', 'Sharron Pace'],
+    isActive: true,
+    balance: 3821,
+    gender: 'female',
+    age: 34
+  },
+  {
+    name: 'Ross Vazquez',
+    email: 'rossvazquez@xinware.com',
+    eyeColor: 'green',
+    friends: ['Marilyn Mcintosh', 'Padilla Garrison', 'Naomi Buckner'],
+    isActive: false,
+    balance: 3793,
+    gender: 'male',
+    age: 24
+  },
+  {
+    name: 'Elma Head',
+    email: 'elmahead@omatom.com',
+    eyeColor: 'green',
+    friends: ['Goldie Gentry', 'Aisha Tran'],
+    isActive: true,
+    balance: 2278,
+    gender: 'female',
+    age: 21
+  },
+])
+console.log(result)
+

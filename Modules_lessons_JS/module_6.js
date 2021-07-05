@@ -751,7 +751,9 @@
 
 // console.log(result)
 //______________________________________________________
-//#26-44
+//#26-44 Метод every()
+//Метод every(callback) проверяет проходят ли все элементы массива тест предоставляемый 
+//коллбек - функцией.Возвращает true или false.
 // const firstArray = [26, 94, 36, 18];
 // const secondArray = [17, 61, 23];
 // const thirdArray = [17, 26, 94, 61, 36, 23, 18];
@@ -816,3 +818,63 @@
 // ])
 // console.log(result)
 //___________________________________________________________
+//#28-44 Метод some()
+//Метод some(callback) проверяет проходит ли хотя бы один элемент массива тест предоставляемый 
+//коллбек - функцией.Возвращает true или false.
+// const firstArray = [26, 94, 36, 18];
+// const secondArray = [17, 61, 23];
+// const thirdArray = [17, 26, 94, 61, 36, 23, 18];
+// // Пиши код ниже этой строки
+
+// const anyElementInFirstIsEven = firstArray.some((element) => element % 2 === 0);
+// const anyElementInFirstIsOdd = firstArray.some((element) => element % 2 !== 0);
+
+// const anyElementInSecondIsEven = secondArray.some((element) => element % 2 === 0);
+// const anyElementInSecondIsOdd = secondArray.some((element) => element % 2 > 0);
+
+// const anyElementInThirdIsEven = thirdArray.some((element) => element % 2 === 0);
+// const anyElementInThirdIsOdd = thirdArray.some((element) => element % 2 > 0);
+//__________________________________________________________________________
+//#29-44 Есть ли активные пользователи
+
+// Пиши код ниже этой строки
+// const isAnyUserActive = users => {
+//    return users.some((user) => user.isActive);
+// };
+// // Пиши код выше этой строки
+// let result = isAnyUserActive([{
+//     name: 'Moore Hensley',
+//     email: 'moorehensley@indexia.com',
+//     eyeColor: 'blue',
+//     friends: ['Sharron Pace'],
+//     isActive: false,
+//     balance: 2811,
+//     gender: 'male'
+//   },
+//   {
+//     name: 'Sharlene Bush',
+//     email: 'sharlenebush@tubesys.com',
+//     eyeColor: 'blue',
+//     friends: ['Briana Decker', 'Sharron Pace'],
+//     isActive: true,
+//     balance: 3821,
+//     gender: 'female'
+//   },
+//   {
+//     name: 'Ross Vazquez',
+//     email: 'rossvazquez@xinware.com',
+//     eyeColor: 'green',
+//     friends: ['Marilyn Mcintosh', 'Padilla Garrison', 'Naomi Buckner'],
+//     isActive: false,
+//     balance: 3793,
+//     gender: 'male'
+//   },
+// ])
+// console.log(result)
+//___________________________________________________________________
+//#30-44 Метод reduce()
+//Метод reduce(callback, initialValue) используется для последовательной обработки каждого элемента массива 
+//с сохранением промежуточного результата, как аккумулятор.Немного сложнее других в усвоении, но результат стоит того.
+// array.reduce((accumulator, element, index, array) => {
+//   // Тело коллбек-функции
+// }, initialValue);

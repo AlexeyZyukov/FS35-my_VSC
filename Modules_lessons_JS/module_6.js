@@ -345,28 +345,28 @@
 //в оригинальном массиве всех genres. В параметре index хранится индекс текущего элемента genre при переборе массива методом filter.
 //Если результат indexOf() и значение index равны - это уникальный элемент, потому что это первый раз когда такое значение 
 //встречается в массиве и на текущей итерации фильтр обрабатывает именно его.
-const books = [
-    {
-      title: 'Последнее королевство',
-      author: 'Бернард Корнуэлл',
-      genres: ['приключения', 'историческое']
-    },
-    {
-      title: 'На берегу спокойных вод',
-      author: 'Роберт Шекли',
-      genres: ['фантастика', 'мистика']
-    },
-    {
-      title: 'Красна как кровь',
-      author: 'Ли Танит',
-      genres: ['ужасы', 'мистика', 'приключения']
-    }
-  ];
-  // Пиши код ниже этой строки
-const allGenres = books.flatMap((genre) => genre.genres);
-console.log(allGenres);
-const uniqueGenres = allGenres.filter((genre, index, array) => array.indexOf(genre) === index);
-console.log(uniqueGenres);
+// const books = [
+//     {
+//       title: 'Последнее королевство',
+//       author: 'Бернард Корнуэлл',
+//       genres: ['приключения', 'историческое']
+//     },
+//     {
+//       title: 'На берегу спокойных вод',
+//       author: 'Роберт Шекли',
+//       genres: ['фантастика', 'мистика']
+//     },
+//     {
+//       title: 'Красна как кровь',
+//       author: 'Ли Танит',
+//       genres: ['ужасы', 'мистика', 'приключения']
+//     }
+//   ];
+//   // Пиши код ниже этой строки
+// const allGenres = books.flatMap((genre) => genre.genres);
+// console.log(allGenres);
+// const uniqueGenres = allGenres.filter((genre, index, array) => array.indexOf(genre) === index);
+// console.log(uniqueGenres);
 // //===================
 // //const allGenres = books.flatMap(function (genre) {
 // //allGenres => allGenres.push(genre)
@@ -538,54 +538,281 @@ console.log(uniqueGenres);
 //возвращаемый массив не содержал повторений.
 // Пиши код ниже этой строки
 
-const getFriends = (users) => {
-  const allFrends = users.flatMap(user => user.friends);
-  return allFrends.filter((friend, index, array) => array.indexOf(friend) === index)
-// const uniqueFrends = getFriends.filter((friend, index, array) => array.indexOf(friend) === index)
-//   return uniqueFrends;
-};
-// Пиши код выше этой строки
-let result = getFriends([
-  {
-    name: 'Moore Hensley',
-    email: 'moorehensley@indexia.com',
-    eyeColor: 'blue',
-    friends: ['Sharron Pace'],
-    isActive: false,
-    balance: 2811,
-    gender: 'male',
-    age: 37
-  },
-  {
-    name: 'Sharlene Bush',
-    email: 'sharlenebush@tubesys.com',
-    eyeColor: 'blue',
-    friends: ['Briana Decker', 'Sharron Pace'],
-    isActive: true,
-    balance: 3821,
-    gender: 'female',
-    age: 34
-  },
-  {
-    name: 'Ross Vazquez',
-    email: 'rossvazquez@xinware.com',
-    eyeColor: 'green',
-    friends: ['Marilyn Mcintosh', 'Padilla Garrison', 'Naomi Buckner'],
-    isActive: false,
-    balance: 3793,
-    gender: 'male',
-    age: 24
-  },
-  {
-    name: 'Elma Head',
-    email: 'elmahead@omatom.com',
-    eyeColor: 'green',
-    friends: ['Goldie Gentry', 'Aisha Tran'],
-    isActive: true,
-    balance: 2278,
-    gender: 'female',
-    age: 21
-  },
-])
-console.log(result)
+// const getFriends = (users) => {
+//   const allFriends = users.flatMap(user => user.friends);
+//   //console.log(allFriends)
+//   return allFriends.filter((friend, index, array) => array.indexOf(friend) === index)
+// };
+// // Пиши код выше этой строки
+// let result = getFriends([
+//   {
+//     name: 'Moore Hensley',
+//     email: 'moorehensley@indexia.com',
+//     eyeColor: 'blue',
+//     friends: ['Sharron Pace'],
+//     isActive: false,
+//     balance: 2811,
+//     gender: 'male',
+//     age: 37
+//   },
+//   {
+//     name: 'Sharlene Bush',
+//     email: 'sharlenebush@tubesys.com',
+//     eyeColor: 'blue',
+//     friends: ['Briana Decker', 'Sharron Pace'],
+//     isActive: true,
+//     balance: 3821,
+//     gender: 'female',
+//     age: 34
+//   },
+//   {
+//     name: 'Ross Vazquez',
+//     email: 'rossvazquez@xinware.com',
+//     eyeColor: 'green',
+//     friends: ['Marilyn Mcintosh', 'Padilla Garrison', 'Naomi Buckner'],
+//     isActive: false,
+//     balance: 3793,
+//     gender: 'male',
+//     age: 24
+//   },
+//   {
+//     name: 'Elma Head',
+//     email: 'elmahead@omatom.com',
+//     eyeColor: 'green',
+//     friends: ['Goldie Gentry', 'Padilla Garrison', 'Aisha Tran', 'Sharron Pace'],
+//     isActive: true,
+//     balance: 2278,
+//     gender: 'female',
+//     age: 21
+//   },
+// ])
+// console.log(result)
+//________________________________________________________________
+//# 22-44 Активные пользователи
+//Дополни функцию getActiveUsers(users) так, чтобы она возвращала массив активных пользователей, 
+//значение свойства isActive которых true.
+// Пиши код ниже этой строки
+// const getActiveUsers = (users) => {
+//    return users.filter((user) => user.isActive)
+// };
+// // Пиши код выше этой строки
+// let result = getActiveUsers([{
+//     name: 'Moore Hensley',
+//     email: 'moorehensley@indexia.com',
+//     eyeColor: 'blue',
+//     friends: ['Sharron Pace'],
+//     isActive: false,
+//     balance: 2811,
+//     gender: 'male',
+//     age: 37
+//   },
+//   {
+//     name: 'Sharlene Bush',
+//     email: 'sharlenebush@tubesys.com',
+//     eyeColor: 'blue',
+//     friends: ['Briana Decker', 'Sharron Pace'],
+//     isActive: true,
+//     balance: 3821,
+//     gender: 'female',
+//     age: 34
+//   },
+//   {
+//     name: 'Ross Vazquez',
+//     email: 'rossvazquez@xinware.com',
+//     eyeColor: 'green',
+//     friends: ['Marilyn Mcintosh', 'Padilla Garrison', 'Naomi Buckner'],
+//     isActive: false,
+//     balance: 3793,
+//     gender: 'male',
+//     age: 24
+//   },
+//   {
+//     name: 'Elma Head',
+//     email: 'elmahead@omatom.com',
+//     eyeColor: 'green',
+//     friends: ['Goldie Gentry', 'Aisha Tran'],
+//     isActive: true,
+//     balance: 2278,
+//     gender: 'female',
+//     age: 21
+//   },])
+//   console.log(result)
+//________________________________________________
+//#23-44 Неактивные пользователи
+//Дополни функцию getInactiveUsers(users) так, чтобы она возвращала массив неактивных пользователей, 
+//значение свойства isActive которых false.
+// Пиши код ниже этой строки
+// const getInactiveUsers = (users) => {
+//    return users.filter(user => !user.isActive)
+// };
+// // Пиши код выше этой строки
+// let result = getInactiveUsers([{
+//     name: 'Moore Hensley',
+//     email: 'moorehensley@indexia.com',
+//     eyeColor: 'blue',
+//     friends: ['Sharron Pace'],
+//     isActive: false,
+//     balance: 2811,
+//     gender: 'male',
+//     age: 37
+//   },
+//   {
+//     name: 'Sharlene Bush',
+//     email: 'sharlenebush@tubesys.com',
+//     eyeColor: 'blue',
+//     friends: ['Briana Decker', 'Sharron Pace'],
+//     isActive: true,
+//     balance: 3821,
+//     gender: 'female',
+//     age: 34
+//   },
+//   {
+//     name: 'Ross Vazquez',
+//     email: 'rossvazquez@xinware.com',
+//     eyeColor: 'green',
+//     friends: ['Marilyn Mcintosh', 'Padilla Garrison', 'Naomi Buckner'],
+//     isActive: false,
+//     balance: 3793,
+//     gender: 'male',
+//     age: 24
+//   },
+//   {
+//     name: 'Elma Head',
+//     email: 'elmahead@omatom.com',
+//     eyeColor: 'green',
+//     friends: ['Goldie Gentry', 'Aisha Tran'],
+//     isActive: true,
+//     balance: 2278,
+//     gender: 'female',
+//     age: 21
+//   },])
+//   console.log(result)
+//_________________________________________________________
+//#24-44 Метод find()
+//метод find(callback) позволяет найти и вернуть первый подходящий элемент, 
+//после чего перебор массива прекращается.То есть он ищет до первого совпадения.
+// const books = [
+//   { title: 'Последнее королевство', author: 'Бернард Корнуэлл', rating: 8.38 },
+//   { title: 'На берегу спокойных вод', author: 'Роберт Шекли', rating: 8.51 },
+//   { title: 'Сон смешного человека', author: 'Федор Достоевский', rating: 7.75 },
+//   { title: 'Красна как кровь', author: 'Ли Танит', rating: 7.94 },
+// ];
+// const BOOK_TITLE = 'Сон смешного человека';
+// const AUTHOR = 'Роберт Шекли';
+// // Пиши код ниже этой строки
 
+// const bookWithTitle = books.find(book => book.title === BOOK_TITLE);
+// const bookByAuthor = books.find(book => book.author === AUTHOR);
+//________________________________________________________________________
+//#25-44  Пользователь с почтой
+// Пиши код ниже этой строки
+// const getUserWithEmail = (users, email) => {
+//   return users.find(user => user.email === email)
+// };
+// // Пиши код выше этой строки
+// let result = getUserWithEmail([
+//   {
+//     name: 'Moore Hensley',
+//     email: 'moorehensley@indexia.com',
+//     eyeColor: 'blue',
+//     friends: ['Sharron Pace'],
+//     isActive: false,
+//     balance: 2811,
+//     gender: 'male'
+//   },
+//   {
+//     name: 'Sharlene Bush',
+//     email: 'sharlenebush@tubesys.com',
+//     eyeColor: 'blue',
+//     friends: ['Briana Decker', 'Sharron Pace'],
+//     isActive: true,
+//     balance: 3821,
+//     gender: 'female'
+//   },
+//   {
+//     name: 'Blackburn Dotson',
+//     email: 'blackburndotson@furnigeer.com',
+//     eyeColor: 'brown',
+//     friends: ['Jacklyn Lucas', 'Linda Chapman'],
+//     isActive: false,
+//     balance: 1498,
+//     gender: 'male'
+//   },
+//   {
+//     name: 'Sheree Anthony',
+//     email: 'shereeanthony@kog.com',
+//     eyeColor: 'brown',
+//     friends: ['Goldie Gentry', 'Briana Decker'],
+//     isActive: true,
+//     balance: 2764,
+//     gender: 'female'
+//   }
+// ], 'shereeanthony@kog.com')
+
+// console.log(result)
+//______________________________________________________
+//#26-44
+// const firstArray = [26, 94, 36, 18];
+// const secondArray = [17, 61, 23];
+// const thirdArray = [17, 26, 94, 61, 36, 23, 18];
+// // Пиши код ниже этой строки
+
+// const eachElementInFirstIsEven = firstArray.every((element) => element % 2 === 0);
+// console.log(eachElementInFirstIsEven);
+// const eachElementInFirstIsOdd = firstArray.every((element) => element % 2 !== 0);
+// console.log(eachElementInFirstIsOdd);
+
+// const eachElementInSecondIsEven = secondArray.every((element) => element % 2 === 0);
+// console.log(eachElementInSecondIsEven);
+// const eachElementInSecondIsOdd = secondArray.every((element) => element % 2 > 0);
+// console.log(eachElementInSecondIsOdd);
+
+// const eachElementInThirdIsEven = thirdArray.every((element) => element % 2 === 0);;
+// const eachElementInThirdIsOdd = thirdArray.every((element) => element % 2 > 0);
+//____________________________________________________
+//#27-44 Все ли пользователи активны
+// Пиши код ниже этой строки
+// const isEveryUserActive = (users) => {
+//   return users.every((user) => user.isActive) 
+// };
+// // Пиши код выше этой строки
+// let result = isEveryUserActive([
+//   {
+//     name: 'Moore Hensley',
+//     email: 'moorehensley@indexia.com',
+//     eyeColor: 'blue',
+//     friends: ['Sharron Pace'],
+//     isActive: false,
+//     balance: 2811,
+//     gender: 'male'
+//   },
+//   {
+//     name: 'Sharlene Bush',
+//     email: 'sharlenebush@tubesys.com',
+//     eyeColor: 'blue',
+//     friends: ['Briana Decker', 'Sharron Pace'],
+//     isActive: true,
+//     balance: 3821,
+//     gender: 'female'
+//   },
+//   {
+//     name: 'Ross Vazquez',
+//     email: 'rossvazquez@xinware.com',
+//     eyeColor: 'green',
+//     friends: ['Marilyn Mcintosh', 'Padilla Garrison', 'Naomi Buckner'],
+//     isActive: false,
+//     balance: 3793,
+//     gender: 'male'
+//   },
+//   {
+//     name: 'Elma Head',
+//     email: 'elmahead@omatom.com',
+//     eyeColor: 'green',
+//     friends: ['Goldie Gentry', 'Aisha Tran'],
+//     isActive: true,
+//     balance: 2278,
+//     gender: 'female'
+//   },
+// ])
+// console.log(result)
+//___________________________________________________________

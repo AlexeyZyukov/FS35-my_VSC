@@ -960,3 +960,86 @@
 //   },
 // ])
 // console.log(result)
+//______________________________________________________
+//#33-44 Общее количество друзей
+//Дополни функцию getTotalFriendCount(users) так, чтобы она считала и возвращала 
+//общее количество друзей(свойство friends) всех пользователей из массива users.
+// Пиши код ниже этой строки
+// const getTotalFriendCount = users =>
+//   users.reduce((allFriends, user) => {
+//     // console.log(allFriends)
+//     // console.log(user)
+//     allFriends.push(...user.friends);
+//     //console.log(allFriends)
+//     return allFriends;
+//   }, []).length;
+
+const getTotalFriendCount = function (users) {
+  users.reduce(function (accum, user) {
+    console.log(accum);
+    console.log(user);
+    accum.push(...user.friends);
+    return accum;
+   }, [])
+ }
+// Пиши код выше этой строки
+let result = getTotalFriendCount([
+  {
+    name: 'Moore Hensley',
+    email: 'moorehensley@indexia.com',
+    eyeColor: 'blue',
+    friends: ['Sharron Pace'],
+    isActive: false,
+    balance: 2811,
+    gender: 'male'
+  },
+  {
+    name: 'Sharlene Bush',
+    email: 'sharlenebush@tubesys.com',
+    eyeColor: 'blue',
+    friends: ['Briana Decker', 'Sharron Pace'],
+    isActive: true,
+    balance: 3821,
+    gender: 'female'
+  },
+  {
+    name: 'Ross Vazquez',
+    email: 'rossvazquez@xinware.com',
+    eyeColor: 'green',
+    friends: ['Marilyn Mcintosh', 'Padilla Garrison', 'Naomi Buckner'],
+    isActive: false,
+    balance: 3793,
+    gender: 'male'
+  },
+])
+console.log(result)
+
+// const tweets = [
+//   { id: '000', likes: 5, tags: ['js', 'nodejs'] },
+//   { id: '001', likes: 2, tags: ['html', 'css'] },
+//   { id: '002', likes: 17, tags: ['html', 'js', 'nodejs'] },
+//   { id: '003', likes: 8, tags: ['css', 'react'] },
+//   { id: '004', likes: 0, tags: ['js', 'nodejs', 'react'] },
+// ];
+
+// // Пройдем по всем элементам коллекции и добавим значения свойства tags
+// // к аккумулятору, начальное значение которого укажем пустым массивом [].
+// // На каждой итерации пушим в аккумулятор все элементы tweet.tags и возвращаем его.
+// const tags = tweets.reduce((allTags, tweet) => {
+//   allTags.push(...tweet.tags);
+
+//   return allTags;
+// }, []);
+
+// console.log(tags);
+
+// // Наверное сбор тегов не одиночная операция, поэтому напишем функцию
+// // для сбора тегов из коллекции
+// const getTags = tweets =>
+//   tweets.reduce((allTags, tweet) => {
+//     allTags.push(...tweet.tags);
+
+//     return allTags;
+//   }, []);
+
+// console.log(getTags(tweets));

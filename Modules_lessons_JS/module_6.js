@@ -972,7 +972,7 @@
 //     allFriends.push(...user.friends);
 //     //console.log(allFriends)
 //     return allFriends;
-//   }, []).length;
+//   }, []).length; //решение на форуме
 
 const getTotalFriendCount = function (users) {
   users.reduce(function (accum, user) {

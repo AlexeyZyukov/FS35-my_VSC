@@ -974,72 +974,234 @@
 //     return allFriends;
 //   }, []).length; //решение на форуме
 
-const getTotalFriendCount = function (users) {
-  users.reduce(function (accum, user) {
-    console.log(accum);
-    console.log(user);
-    accum.push(...user.friends);
-    return accum;
-   }, [])
- }
-// Пиши код выше этой строки
-let result = getTotalFriendCount([
-  {
-    name: 'Moore Hensley',
-    email: 'moorehensley@indexia.com',
-    eyeColor: 'blue',
-    friends: ['Sharron Pace'],
-    isActive: false,
-    balance: 2811,
-    gender: 'male'
-  },
-  {
-    name: 'Sharlene Bush',
-    email: 'sharlenebush@tubesys.com',
-    eyeColor: 'blue',
-    friends: ['Briana Decker', 'Sharron Pace'],
-    isActive: true,
-    balance: 3821,
-    gender: 'female'
-  },
-  {
-    name: 'Ross Vazquez',
-    email: 'rossvazquez@xinware.com',
-    eyeColor: 'green',
-    friends: ['Marilyn Mcintosh', 'Padilla Garrison', 'Naomi Buckner'],
-    isActive: false,
-    balance: 3793,
-    gender: 'male'
-  },
-])
-console.log(result)
+// const getTotalFriendCount = users =>
+//   users.reduce((allFriends, { friends }) => {
+//     allFriends.push(...friends);
+//     return allFriends;
+//   }, []).length;
 
-// const tweets = [
-//   { id: '000', likes: 5, tags: ['js', 'nodejs'] },
-//   { id: '001', likes: 2, tags: ['html', 'css'] },
-//   { id: '002', likes: 17, tags: ['html', 'js', 'nodejs'] },
-//   { id: '003', likes: 8, tags: ['css', 'react'] },
-//   { id: '004', likes: 0, tags: ['js', 'nodejs', 'react'] },
+// // const getTotalFriendCount = function (users) {
+// //   users.reduce((accum, { friends }) => {
+// //      console.log(accum);
+// //     // console.log(friends);
+// //     accum.push(...friends);
+// //     return accum;
+// //   }, []);
+// // };
+// // // Пиши код выше этой строки
+// let result = getTotalFriendCount([
+//   {
+//     name: 'Moore Hensley',
+//     email: 'moorehensley@indexia.com',
+//     eyeColor: 'blue',
+//     friends: ['Sharron Pace'],
+//     isActive: false,
+//     balance: 2811,
+//     gender: 'male'
+//   },
+//   {
+//     name: 'Sharlene Bush',
+//     email: 'sharlenebush@tubesys.com',
+//     eyeColor: 'blue',
+//     friends: ['Briana Decker', 'Sharron Pace'],
+//     isActive: true,
+//     balance: 3821,
+//     gender: 'female'
+//   },
+//   {
+//     name: 'Ross Vazquez',
+//     email: 'rossvazquez@xinware.com',
+//     eyeColor: 'green',
+//     friends: ['Marilyn Mcintosh', 'Padilla Garrison', 'Naomi Buckner'],
+//     isActive: false,
+//     balance: 3793,
+//     gender: 'male'
+//   },
+// ])
+// console.log(result)
+//______________________________________________________________
+//# 34-44 Метод sort()
+//Из-за того, что сортируется исходный массив, нарушается принцип чистоты функций 
+//и нельзя удобно сделать несколько производных коллекций на базе исходной.Например, 
+//сделать коллекцию отсортированную по возрастанию, а другую по убыванию.
+//Поэтому перед сортировкой делают полную копию исходного массива и сортируют уже её.
+// const releaseDates = [2016, 1967, 2008, 1984, 1973, 2012, 1997];
+// const authors = [
+//   'Ли Танит',
+//   'Бернард Корнуэлл',
+//   'Роберт Шекли',
+//   'Федор Достоевский'
 // ];
+// // Пиши код ниже этой строки
 
-// // Пройдем по всем элементам коллекции и добавим значения свойства tags
-// // к аккумулятору, начальное значение которого укажем пустым массивом [].
-// // На каждой итерации пушим в аккумулятор все элементы tweet.tags и возвращаем его.
-// const tags = tweets.reduce((allTags, tweet) => {
-//   allTags.push(...tweet.tags);
+// const ascendingReleaseDates = [...releaseDates].sort();
 
-//   return allTags;
-// }, []);
+// const alphabeticalAuthors = [...authors].sort();
+//______________________________________________________________
+//#35-44 Свой порядок сортировки чисел
+//firstEl - первый элемент для сравнения.
+//secondEl - второй элемент для сравнения.
+//Если вызов compareFunction(firstEl, secondEl) возвращает любое отрицательное значение, 
+//то есть firstEl меньше secondEl, сортировка поставит firstEl перед secondEl.
+//Это сортировка по возрастанию.
+//Если вызов compareFunction(firstEl, secondEl) возвращает любое положительное значение больше нуля, 
+//то есть secondEl больше firstEl, сортировка поставит secondEl перед firstEl.
+//Это сортировка по убыванию.
+// const releaseDates = [2016, 1967, 2008, 1984, 1973, 2012, 1997];
+// // Пиши код ниже этой строки
+// const ascendingReleaseDates = [...releaseDates].sort((firstEl, secondEl) => firstEl - secondEl);
+// //Если вызов compareFunction(firstEl, secondEl) возвращает любое положительное значение больше нуля, 
+// //то есть secondEl больше firstEl, сортировка поставит secondEl перед firstEl.
+// //Это сортировка по убыванию.
+// const descendingReleaseDates = [...releaseDates].sort((firstEl, secondEl) => secondEl - firstEl);
+//_________________________________________________________
+//# 36-44 Свой порядок сортировки строк - localeCompare()
+// const authors = [
+//     'Ли Танит',
+//     'Бернард Корнуэлл',
+//     'Роберт Шекли',
+//     'Федор Достоевский',
+//     'Говард Лавкрафт'
+//   ];
+//   // Пиши код ниже этой строки
+  
+//   const authorsInAlphabetOrder = [...authors].sort((firstString, secondString) => firstString.localeCompare(secondString));
+  
+//   const authorsInReversedOrder = [...authors].sort((firstString, secondString) => secondString.localeCompare(firstString));
+//_____________________________________________________________
+//# 37-44 Сортировка объектов
+//При работе с массивом объектов сортировка выполняется по числовому или строчному значению какого-то свойства
+// const books = [
+//   { title: 'Последнее королевство', author: 'Бернард Корнуэлл', rating: 8.38 },
+//   { title: 'На берегу спокойных вод', author: 'Роберт Шекли', rating: 8.51 },
+//   { title: 'Сон смешного человека', author: 'Федор Достоевский', rating: 7.75 },
+//   { title: 'Красна как кровь', author: 'Ли Танит', rating: 7.94 },
+//   { title: 'Враг Божий', author: 'Бернард Корнуэлл', rating: 8.67 }
+// ];
+// // Пиши код ниже этой строки
 
-// console.log(tags);
+// const sortedByAuthorName = [...books].sort(
+//   (firstStr, secondStr) =>
+//     firstStr.author.localeCompare(secondStr.author));
 
-// // Наверное сбор тегов не одиночная операция, поэтому напишем функцию
-// // для сбора тегов из коллекции
-// const getTags = tweets =>
-//   tweets.reduce((allTags, tweet) => {
-//     allTags.push(...tweet.tags);
+// const sortedByReversedAuthorName = [...books].sort(
+//   (firstStr, secondStr) =>
+//     secondStr.author.localeCompare(firstStr.author));
 
-//     return allTags;
-//   }, []);
+// const sortedByAscendingRating = [...books].sort(
+//   (firstEl, secondEl) =>
+//     firstEl.rating - secondEl.rating);
 
-// console.log(getTags(tweets));
+// const sortedByDescentingRating = [...books].sort(
+//   (firstEl, secondEl) =>
+//     secondEl.rating - firstEl.rating);
+//__________________________________________________________
+//# 38-44 Сортировка массива по балансу
+// Пиши код ниже этой строки
+// const sortByAscendingBalance = users => {
+//    let usersBallance = [];
+//   usersBallance = [...users].sort(
+//     (firstEl, secondEl) =>
+//       firstEl.balance - secondEl.balance);
+//   return usersBallance;
+// };
+// // Пиши код выше этой строки
+// let result = sortByAscendingBalance([
+//   {
+//     name: 'Moore Hensley',
+//     email: 'moorehensley@indexia.com',
+//     eyeColor: 'blue',
+//     friends: ['Sharron Pace'],
+//     isActive: false,
+//     balance: 2811,
+//     gender: 'male'
+//   },
+//   {
+//     name: 'Sharlene Bush',
+//     email: 'sharlenebush@tubesys.com',
+//     eyeColor: 'blue',
+//     friends: ['Briana Decker', 'Sharron Pace'],
+//     isActive: true,
+//     balance: 3821,
+//     gender: 'female'
+//   },
+//   {
+//     name: 'Ross Vazquez',
+//     email: 'rossvazquez@xinware.com',
+//     eyeColor: 'green',
+//     friends: ['Marilyn Mcintosh', 'Padilla Garrison', 'Naomi Buckner'],
+//     isActive: false,
+//     balance: 3793,
+//     gender: 'male'
+//   },
+//   {
+//     name: 'Elma Head',
+//     email: 'elmahead@omatom.com',
+//     eyeColor: 'green',
+//     friends: ['Goldie Gentry', 'Aisha Tran'],
+//     isActive: true,
+//     balance: 2278,
+//     gender: 'female'
+//   },
+//   {
+//     name: 'Carey Barr',
+//     email: 'careybarr@nurali.com',
+//     eyeColor: 'blue',
+//     friends: ['Jordan Sampson', 'Eddie Strong'],
+//     isActive: true,
+//     balance: 3951,
+//     gender: 'male'
+//   },
+//   {
+//     name: 'Blackburn Dotson',
+//     email: 'blackburndotson@furnigeer.com',
+//     eyeColor: 'brown',
+//     friends: ['Jacklyn Lucas', 'Linda Chapman'],
+//     isActive: false,
+//     balance: 1498,
+//     gender: 'male'
+//   },
+//   {
+//     name: 'Sheree Anthony',
+//     email: 'shereeanthony@kog.com',
+//     eyeColor: 'brown',
+//     friends: ['Goldie Gentry', 'Briana Decker'],
+//     isActive: true,
+//     balance: 2764,
+//     gender: 'female'
+//   }
+// ])
+// console.log(result);
+//_________________________________________________________________
+// 39-44 Сортировка по количеству друзей
+//Дополни функцию sortByDescendingFriendCount(users) так, чтобы она возвращала массив пользователей 
+//отсортированный по убыванию количества их друзей(свойство friends).
+// Пиши код ниже этой строки
+// const sortByDescendingFriendCount = users => {
+//   let friendsQuantity = [];
+//   friendsQuantity = [...users].sort((a, b) => b.friends.length - a.friends.length);
+//   return friendsQuantity;   
+// };
+// Пиши код выше этой строки
+//______________________________________________________________
+// 40-44 Сортировка по имени
+// Пиши код ниже этой строки
+// const sortByName = users => {
+//   let nameSorted = [];
+//   nameSorted = [...users].sort((a, b) => a.name.localeCompare(b.name));
+//   return nameSorted;
+// };
+// // Пиши код выше этой строки
+//_______________________________________________________________
+//# 41-44 Цепочки методов (чейнинг, chaining)
+const books = [
+  { title: 'Последнее королевство', author: 'Бернард Корнуэлл', rating: 8.38 },
+  { title: 'На берегу спокойных вод', author: 'Роберт Шекли', rating: 8.51 },
+  { title: 'Сон смешного человека', author: 'Федор Достоевский', rating: 7.75 },
+  { title: 'Красна как кровь', author: 'Ли Танит', rating: 8.14 },
+  { title: 'Сны В Ведьмином Доме', author: 'Говард Лавкрафт', rating: 8.67 }
+];
+const MIN_BOOK_RATING = 8;
+// Пиши код ниже этой строки
+
+const names = books;

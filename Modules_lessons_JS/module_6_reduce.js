@@ -181,7 +181,6 @@
 // const getTags = tweets =>
 //   tweets.reduce((allTags, tweet) => {
 //     allTags.push(...tweet.tags);
-
 //     return allTags;
 //   }, []);
 
